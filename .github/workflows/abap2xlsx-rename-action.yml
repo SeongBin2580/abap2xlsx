@@ -1,0 +1,53 @@
+name: abap2xlsx-rename
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  rename-abap2xlsx:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Mirror and rename abap2xlsx
+        uses: abap2xlsx/abap2xlsx-rename-action@main
+        with:
+          folder: src/abap2xlsx
+          patterns: >
+            [
+              {
+                "type": "CLAS|INTF",
+                "oldName": "z(cl|if|cx)_excel",
+                "newName": "z$1_yyxls"
+              },
+              {
+                "type": "DTEL|DOMA|TABL|TTYP",
+                "oldName": "zexcel_",
+                "newName": "zyyxls_"
+              },
+              {
+                "type": "MSAG",
+                "oldName": "zabap2xlsx",
+                "newName": "zyyxlsmsg"
+              }
+            ]
+
+      - name: Show changed files
+        run: git status
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "ABAP: renamed abap2xlsx"
+          branch: automatic/abap2xlsx-rename
+          body: |
+            Automatic rename of abap2xlsx objects.
+
+
