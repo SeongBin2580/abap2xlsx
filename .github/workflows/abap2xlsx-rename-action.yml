@@ -42,12 +42,17 @@ jobs:
                 },
                 {
                   "type": "CLAS",
+                  "oldName": "zcl_excel_theme_objectdefaults",
+                  "newName": "zcl_yy_xls_theme_objectdefault"
+                },            
+                {
+                  "type": "CLAS",
                   "oldName": "^zcl_excel$",
                   "newName": "zcl_yy_xls"
                 },
                 {
                   "type": "CLAS",
-                  "oldName": "zcl_excel_(?!(worksheet_pagebreaks|converter_salv_model|converter_salv_table))",
+                  "oldName": "zcl_excel_(?!(worksheet_pagebreaks|converter_salv_model|converter_salv_table|theme_objectdefaults))",
                   "newName": "zcl_yy_xls_"
                 },
                 {
