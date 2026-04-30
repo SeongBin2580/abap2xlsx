@@ -17,7 +17,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Mirror and rename abap2xlsx
         uses: abap2xlsx/abap2xlsx-rename-action@main
@@ -44,7 +47,7 @@ jobs:
                   "type": "CLAS",
                   "oldName": "zcl_excel_theme_objectdefaults",
                   "newName": "zcl_yy_xls_theme_objectdefault"
-                },            
+                },
                 {
                   "type": "CLAS",
                   "oldName": "^zcl_excel$",
@@ -87,7 +90,7 @@ jobs:
                 },
                 {
                   "type": "DTEL",
-                  "oldName": "zexcel_(?!(converter_option_)|(condition_))",
+                  "oldName": "zexcel_(?!(converter_option_|condition_))",
                   "newName": "zyye_xls_"
                 },
                 {
@@ -105,8 +108,15 @@ jobs:
       - name: Show changed files
         run: git status
 
+      - name: Clear duplicated git authorization headers
+        run: |
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git config --global --unset-all http.https://github.com/.extraheader || true
+          git config --local --unset-all http.extraheader || true
+          git config --global --unset-all http.extraheader || true
+
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v8
         with:
           title: "ABAP: renamed abap2xlsx"
           branch: automatic/abap2xlsx-rename
