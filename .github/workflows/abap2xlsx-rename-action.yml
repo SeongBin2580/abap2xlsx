@@ -79,7 +79,7 @@ jobs:
                   "type": "DTEL",
                   "oldName": "zexcel_(?!(converter_option_))",
                   "newName": "zyye_xls_"
-                }
+                },
                 {
                   "type": "DOMA",
                   "oldName": "zexcel",
