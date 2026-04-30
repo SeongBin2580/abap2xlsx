@@ -72,24 +72,14 @@ jobs:
                 },
                 {
                   "type": "DTEL",
-                  "oldName": "zexcel_converter_option_subtot",
-                  "newName": "zyye_xls_convert_option_subtot"
+                  "oldName": "zexcel_converter_option_",
+                  "newName": "zyye_xls_convert_option_"
                 },
                 {
                   "type": "DTEL",
-                  "oldName": "zexcel_converter_option_hidenc",
-                  "newName": "zyye_xls_convert_option_hidenc"
-                },
-                {
-                  "type": "DTEL",
-                  "oldName": "zexcel_converter_option_hidehd",
-                  "newName": "zyye_xls_convert_option_hidehd"
-                },
-                {
-                  "type": "DTEL",
-                  "oldName": "zexcel_(?!(converter_option_subtot|converter_option_hidenc|converter_option_hidehd))",
+                  "oldName": "zexcel_(?!(converter_option_))",
                   "newName": "zyye_xls_"
-                },
+                }
                 {
                   "type": "DOMA",
                   "oldName": "zexcel",
