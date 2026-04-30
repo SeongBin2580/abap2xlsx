@@ -82,7 +82,12 @@ jobs:
                 },
                 {
                   "type": "DTEL",
-                  "oldName": "zexcel_(?!(converter_option_subtot|converter_option_hidenc))",
+                  "oldName": "zexcel_converter_option_hidehd",
+                  "newName": "zyye_xls_convert_option_hidehd"
+                },
+                {
+                  "type": "DTEL",
+                  "oldName": "zexcel_(?!(converter_option_subtot|converter_option_hidenc|converter_option_hidehd))",
                   "newName": "zyye_xls_"
                 },
                 {
