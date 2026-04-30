@@ -72,8 +72,13 @@ jobs:
                 },
                 {
                   "type": "DTEL",
-                  "oldName": "zexcel",
-                  "newName": "zyye_xls"
+                  "oldname": "zexcel_converter_option_subtot",
+                  "newname": "zyye_xls_convert_option_subtot"
+                },
+                {
+                  "type": "DTEL",
+                  "oldName": "zexcel_(?!(converter_option_subtot))",
+                  "newName": "zyye_xls_"
                 },
                 {
                   "type": "DOMA",
