@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -17,8 +18,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
 
       - name: Mirror and rename abap2xlsx
         uses: abap2xlsx/abap2xlsx-rename-action@main
@@ -27,30 +26,54 @@ jobs:
           patterns: >
             [
               {
-                "type": "CLAS|INTF",
-                "oldName": "z(cl|if|cx)_excel",
-                "newName": "z$1_yyxls"
+                "type": "CLAS",
+                "oldName": "zcl_excel",
+                "newName": "zcl_yy_xls"
               },
               {
-                "type": "DTEL|DOMA|TABL|TTYP",
-                "oldName": "zexcel_",
-                "newName": "zyyxls_"
+                "type": "INTF",
+                "oldName": "zif_excel",
+                "newName": "zif_yy_xls"
+              },
+              {
+                "type": "CLAS",
+                "oldName": "zcx_excel",
+                "newName": "zcx_yy_xls"
+              },
+              {
+                "type": "TTYP",
+                "oldName": "zexcel_t",
+                "newName": "zyyy_xls"
+              },
+              {
+                "type": "TABL",
+                "oldName": "zexcel_s",
+                "newName": "zyys_xls"
+              },
+              {
+                "type": "DTEL",
+                "oldName": "zexcel",
+                "newName": "zyye_xls"
+              },
+              {
+                "type": "DOMA",
+                "oldName": "zexcel",
+                "newName": "zyyd_xls"
               },
               {
                 "type": "MSAG",
                 "oldName": "zabap2xlsx",
-                "newName": "zyyxls2msg"
+                "newName": "zyyxlsmsg"
               }
             ]
 
-      - name: Commit renamed files
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add src/abap2xlsx
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "rename abap2xlsx objects"
-            git push
-          fi
+      - name: Show changed files
+        run: git status
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "ABAP: renamed abap2xlsx"
+          branch: automatic/abap2xlsx-rename
+          body: |
+            Automatic rename of abap2xlsx objects.
