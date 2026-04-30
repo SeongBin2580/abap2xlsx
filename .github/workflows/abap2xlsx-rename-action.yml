@@ -72,8 +72,8 @@ jobs:
                 },
                 {
                   "type": "DTEL",
-                  "oldname": "zexcel_converter_option_subtot",
-                  "newname": "zyye_xls_convert_option_subtot"
+                  "oldName": "zexcel_converter_option_subtot",
+                  "newName": "zyye_xls_convert_option_subtot"
                 },
                 {
                   "type": "DTEL",
