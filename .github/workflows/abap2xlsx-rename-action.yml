@@ -77,7 +77,12 @@ jobs:
                 },
                 {
                   "type": "DTEL",
-                  "oldName": "zexcel_(?!(converter_option_))",
+                  "oldName": "zexcel_condition_",
+                  "newName": "zyye_xls_conditi_"
+                },
+                {
+                  "type": "DTEL",
+                  "oldName": "zexcel_(?!(converter_option_)|(condition_))",
                   "newName": "zyye_xls_"
                 },
                 {
