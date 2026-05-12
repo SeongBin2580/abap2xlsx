@@ -1,4 +1,4 @@
-name: abap2xlsx-rename-pp
+name: abap2xlsx-rename-action-pp
 
 on:
   workflow_dispatch:
@@ -117,6 +117,15 @@ jobs:
 
       - name: Show changed files
         run: git status --short
+
+      - name: Upload SAP import ZIP artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: abap2xlsx-pp
+          path: src/abap2xlsx/pp/
+          if-no-files-found: error
+          include-hidden-files: true
+          compression-level: 9
 
       - name: Clear duplicated git authorization headers
         run: |
