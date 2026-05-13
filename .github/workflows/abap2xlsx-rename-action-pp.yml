@@ -24,8 +24,8 @@ jobs:
 
       - name: Prepare output folder
         run: |
-          mkdir -p src/abap2xlsx/pp
-          touch src/abap2xlsx/pp/__placeholder__.txt
+          mkdir -p pp
+          touch pp/__placeholder__.txt
 
       - name: Mirror and rename abap2xlsx
         uses: abap2xlsx/abap2xlsx-rename-action@main
@@ -122,7 +122,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: abap2xlsx-pp
-          path: src/abap2xlsx/pp/
+          path: pp/
           if-no-files-found: error
           include-hidden-files: true
           compression-level: 9
