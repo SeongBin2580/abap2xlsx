@@ -1,7 +1,0 @@
-GitHub Repository
-→ Actions
-→ 왼쪽에서 abap2xlsx-rename-action-pp workflow 선택
-→ 성공한 실행 건 클릭(링크)
-→ Summary 화면 아래쪽 또는 오른쪽의 Artifacts 영역 확인
-→ abap2xlsx-pp 클릭
-→ abap2xlsx-pp.zip 다운로드
