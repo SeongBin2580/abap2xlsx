@@ -101,6 +101,11 @@ jobs:
                 "newName": "zpps_xls"
               },
               {
+                "type": "TABL",
+                "oldName": "^zexcel",
+                "newName": "zppt_xls"
+              },              
+              {
                 "type": "DTEL",
                 "oldName": "^zexcel_converter_option_",
                 "newName": "zppe_xls_convert_option_"
