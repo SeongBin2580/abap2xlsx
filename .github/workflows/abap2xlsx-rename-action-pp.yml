@@ -102,8 +102,13 @@ jobs:
               },
               {
                 "type": "TABL",
-                "oldName": "^zexcel",
-                "newName": "zppt_xls"
+                "oldName": "^zexcel_conditional_",
+                "newName": "zppt_xls_condition_"
+              },
+              {
+                "type": "TABL",
+                "oldName": "^zexcel_",
+                "newName": "zppt_xls_"
               },              
               {
                 "type": "DTEL",
